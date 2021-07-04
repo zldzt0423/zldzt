@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          #开启小写验证，默认feign根据服务名查找都是用的全大写
+          lowerCaseServiceId: true
+      routes:
+        - id: web-api
+          uri: lb://web-api
+          predicates:
+            - Path=/api/v1/**
+          filters:
+            - StripPrefix=1
+eureka:
+  instance:
+    hostname: 127.0.0.1 #服务注册中心IP地址
+  client:
+    registerWithEureka: true #是否向服务注册中心注册自己
+    fetchRegistry: false #是否检索服务
+    serviceUrl: #服务注册中心的配置内容，指定服务注册中心的位置
+      defaultZone: http://${eureka.instance.hostname}:8080/eureka/
