@@ -6,7 +6,6 @@
         <groupId>com.zldzt</groupId>
         <artifactId>zldzt</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.zldzt.gateway</groupId>
     <artifactId>gateway</artifactId>
