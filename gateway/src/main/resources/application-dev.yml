@@ -8,11 +8,11 @@ spring:
           lowerCaseServiceId: true
       routes:
         - id: web-api
-          uri: lb://web-api
+          uri: lb://WEB-API
           predicates:
             - Path=/api/v1/**
           filters:
-            - StripPrefix=1
+            - StripPrefix=2
 eureka:
   instance:
     hostname: 127.0.0.1 #服务注册中心IP地址
