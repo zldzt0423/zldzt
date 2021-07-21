@@ -1,5 +1,6 @@
 package com.zldzt.mybatis.plus.generator.config;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
@@ -68,9 +69,10 @@ public class CodeGenerator {
         gc.setOutputDir(projectPath + "/mybatis-plus-generator/src/main/java");
         gc.setAuthor(configBean.getCreateUserName());
         gc.setOpen(false);
-        // gc.setSwagger2(true); 实体属性 Swagger2 注解
+        gc.setIdType(IdType.AUTO);
+        gc.setFileOverride(true); //是否覆盖已有文件
+         gc.setSwagger2(true); //实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
-
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setUrl(configBean.getUrl());
@@ -113,8 +115,10 @@ public class CodeGenerator {
 
         // 配置模板
         TemplateConfig templateConfig = new TemplateConfig();
-
-        templateConfig.setXml(null);
+        templateConfig.setController(null);  //不生成controller
+        templateConfig.setService(null);    //不生成service
+        templateConfig.setServiceImpl(null);//不生成serviceImpl
+        templateConfig.setXml(null);        //不生成xml
         mpg.setTemplate(templateConfig);
 
         // 策略配置
