@@ -1,5 +1,5 @@
 server:
-  port: 8080 #服务注册中心端口号
+  port: 8081 #服务注册中心端口号
 eureka:
   instance:
     hostname: 127.0.0.1 #服务注册中心IP地址
